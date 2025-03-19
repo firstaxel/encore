@@ -4,7 +4,15 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
+    binaryTargets = ["native", "debian-openssl-3.0.x"]
+
   output          = "../generated/client"
+}
+
+generator drizzle {
+  provider = "prisma-generator-drizzle"
+  // Specify the output file (or directory)
+  output = "./database/drizzle.ts"
 }
 
 datasource db {
@@ -15,7 +23,53 @@ datasource db {
 
 // This is a stub model.
 // Delete it and add your own Prisma models.
-model Page {
-  id   Int    @id @default(autoincrement())
-  name String
+model User {
+  id                String             @id @default(uuid())
+  stackId           String
+  email             String             @unique
+  username          String             @unique
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt()
+  freelancerProfile Profile? // One-to-one relation
+
+  @@unique([stackId])
+
+  @@index([stackId])
+}
+
+
+model Profile {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [stackId], onDelete: Cascade)
+
+  fullName       String
+  phone          String?  // Optional field
+  bio            String?  @db.Text
+
+  skills         String[] // Array of skills
+  experienceLevel ExperienceLevel
+  portfolio      String[] // Array of URLs
+
+  hourlyRate     Float?
+  categories     String[]
+  availability   Boolean  @default(true)
+  location       String?
+  languages      String[]
+
+  rating         Float    @default(0)
+  reviewsCount   Int      @default(0)
+
+  isVerified     Boolean  @default(false)
+  socialLinks    String[]
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt()
+}
+
+// Enum for experience levels
+enum ExperienceLevel {
+  Beginner
+  Intermediate
+  Expert
 }

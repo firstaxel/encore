@@ -1,0 +1,28 @@
+{
+  "name": "encore-ts-starter",
+  "private": true,
+  "version": "0.0.1",
+  "description": "api for my app",
+  "license": "MPL-2.0",
+  "type": "module",
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.13.10",
+    "prisma": "^6",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6",
+    "@repo/analytics": "workspace:*",
+    "@repo/auth": "workspace:*",
+    "@repo/database": "workspace:*",
+    "@repo/email": "workspace:*",
+    "@repo/observability": "workspace:*",
+    "@repo/payments": "workspace:*",
+    "@repo/testing": "workspace:*",
+    "encore.dev": "^1.46.10",
+    "vitest": "^3.0.9",
+    "zod": "^3.24.2"
+  },
+  "packageManager": "pnpm@10.6.4"
+}

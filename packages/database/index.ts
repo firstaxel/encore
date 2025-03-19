@@ -19,4 +19,14 @@ if (process.env.NODE_ENV !== 'production') {
   globalForPrisma.prisma = database;
 }
 
+export const prismaClient = (dbUrl:string) => {
+  return dbUrl ? new PrismaClient({
+  datasources: {
+    db: {
+      url: dbUrl,
+    },
+  },
+}) : database
+}
+
 export * from './generated/client';

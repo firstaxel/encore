@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "dist/index.js"
   },
-  "files": [
-    "dist/index.js"
-  ],
+  "files": ["dist/index.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -18,7 +16,9 @@
     "boundaries": "turbo boundaries",
     "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
     "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/design-system",
-    "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push",
+    "db:migrate": "cd packages/database && npx drizzle-kit migrate",
+    "db:generate": "cd packages/database && npx drizzle-kit generate",
+    "db:pull": "cd packages/database && npx drizzle-kit pull",
     "clean": "git clean -xdf node_modules"
   },
   "devDependencies": {
@@ -26,17 +26,17 @@
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.4.4",
-    "@types/node": "^22.13.9",
+    "@types/node": "^22.13.10",
     "tsup": "^8.4.0",
     "turbo": "^2.4.4",
     "typescript": "^5.8.2",
-    "ultracite": "^4.1.20",
-    "vitest": "^3.0.7"
+    "ultracite": "^4.1.21",
+    "vitest": "^3.0.9"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.4",
   "dependencies": {
     "@clack/prompts": "^0.10.0",
     "commander": "^13.1.0"
