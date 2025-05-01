@@ -12,7 +12,7 @@
     "gen": "encore gen client apiw-7t52 --output=./app/lib/client.ts --env=local"
   },
   "dependencies": {
-    "@prisma/client": "6.5.0",
+    "@prisma/client": "6.7.0",
     "@repo/analytics": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/collaboration": "workspace:*",
