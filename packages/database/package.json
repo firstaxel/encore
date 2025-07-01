@@ -29,7 +29,7 @@
     "@types/ws": "^8.18.0",
     "bufferutil": "^4.0.9",
     "drizzle-kit": "^0.30.5",
-    "prisma": "6.5.0",
+    "prisma": "6.11.0",
     "prisma-generator-drizzle": "^0.7.6",
     "typescript": "^5.8.2"
   }
