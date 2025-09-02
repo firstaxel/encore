@@ -19,7 +19,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.13.10",
     "@types/react": "19.0.11",
-    "@types/react-dom": "^19.0.4",
+    "@types/react-dom": "^19.1.9",
     "next": "15.2.3"
   }
 }
