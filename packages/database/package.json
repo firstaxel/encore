@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.10.4",
+    "@neondatabase/serverless": "^1.0.2",
     "@prisma/adapter-neon": "6.5.0",
     "@prisma/client": "6.5.0",
     "@t3-oss/env-nextjs": "^0.12.0",
